@@ -1,0 +1,14 @@
+* {
+    background-color: #55ccff;
+}
+
+li {
+    text-align: center;
+    list-style-type: none;
+}
+
+li::first-letter {
+    text-transform: uppercase;
+    /* font-weight: bold; */
+    font-size: x-large;
+}
