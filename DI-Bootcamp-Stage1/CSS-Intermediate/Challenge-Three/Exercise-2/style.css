@@ -1,0 +1,43 @@
+#wrapper {
+  border: 3px solid black;
+  padding: 10px;
+  width: 450px;
+}
+
+#purple {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 12px;
+  background-color: #8a79c5;
+  border: 2px solid black;
+}
+
+#wrap {
+  display: flex;
+  gap: 12px;
+}
+
+.c3 {
+  flex: 1;
+  height: 220px;
+  border: 2px solid black;
+}
+
+#pink {
+  background-color: #e06666;
+}
+
+#green {
+  background-color: #93c47d;
+}
+
+#orange {
+  background-color: #f6a800;
+}
+
+header {
+    padding-left: 5px;
+    border: 3px solid black;
+    border-bottom: none;
+    width: 465px;
+}
