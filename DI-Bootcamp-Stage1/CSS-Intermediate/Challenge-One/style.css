@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    background-color: #364371;
+}
+
+#wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#nav {
+    margin-left: 50px;
+    display: inline-block;
+    background-color: #b0cfff;
+    padding: 20px;
+ 
+}
+
+#content {
+    display: inline-block;
+    background-color: #5b7fbd;
+    padding: 20px;
+    width: 400px;
+}
+
+#content li {
+    list-style-type: none;
+    text-align: center;
+}
+
+.copyright{
+    flex-basis: 100%;
+    text-align: right;
+    float: right;
+    width: 10px;
+}
+h1 {
+    text-align: center;
+}
