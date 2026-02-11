@@ -1,0 +1,134 @@
+img {
+  width: 300px;
+}
+
+nav {
+    display: flex;
+    background-color: #d07540;
+}
+
+#navHeader {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  color: #333;
+  padding: 20px;
+  text-align: left;
+  align-self: center;
+  display: flex;
+}
+
+#navHeader h4 {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+#navHeader p {
+  font-size: 32px;
+  font-weight: 400;
+  color: blue;
+  margin-top: 4px;
+  margin-left: 30px;
+}
+
+#navSubTitle {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  align-self: flex-start;
+}
+
+#navLinks {
+  list-style-type: none;
+  display: flex;
+  margin-left: auto;
+  padding: 0;
+}
+
+#navLinks a {
+  margin-left: 20px;
+  color: #333;
+}
+
+#navLinks a:hover {
+  color: white;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #D37900;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.submenu li {
+  padding: 10px;
+}
+
+#navLinks li:hover .submenu {
+  display: block;
+}
+
+#navLinks li:hover .submenu li a {
+  color: white;
+}
+
+#logo_bakery {
+  width: 300px;
+  display: block;
+  margin: 20px auto;
+}
+
+#deal {
+  background-image: url('https://images.pexels.com/photos/14565951/pexels-photo-14565951.jpeg?auto=compress&cs=tinysrgb&w=1600');
+  background-size: 500px;
+  width: 500px;
+  height: 300px;
+  color: white;
+  margin-top: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#deal .material-symbols-outlined {
+  color: blue;
+  font-size: 70px;
+  /* margin-bottom: 10px; */
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main > a {
+  margin-left: auto;
+}
+
+#deal h1 {
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.clignotant {
+  animation: blink 1s 5;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
