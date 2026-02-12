@@ -4,48 +4,48 @@
 
 # 2. This is a comment
 
-3.print("I AM A COMPUTER!")
+# 3.print("I AM A COMPUTER!")
 
-4.if 1<2<4:
-    print("Math is fun")
+# 4.if 1<2<4:
+#     print("Math is fun")
 
-5. nope = None
+# 5. nope = None
 
-6. operator = True + False
+# 6. operator = True + False
 
-7. str = "What's my length?"
-len(str)
+# 7. str = "What's my length?"
+# len(str)
 
-8. ex8 = "i am shouting"
-ex8.upper()
+# 8. ex8 = "i am shouting"
+# ex8.upper()
 
-9. str9 = "1000"
-int(str9)
+# 9. str9 = "1000"
+# int(str9)
 
-10.test10 = str("4")+ "real"
+# 10.test10 = str("4")+ "real"
 
-11.coolcoolcool
+# 11.coolcoolcool
 
-12.ZeroDivisionError: division by zero
+# 12.ZeroDivisionError: division by zero
 
-13.<class 'list'>
+# 13.<class 'list'>
 
-14.name=input("What is your name ? : ")
+# 14.name=input("What is your name ? : ")
 
-15.if message<0:
-...     print("That number is less than 0!")
-... elif message>0: 
-...     print("That number is greater than 0!")
-... else:
-...     print("You picked 0 !")
-... message=input("Please choose a number: ")
+# 15.if message<0:
+# ...     print("That number is less than 0!")
+# ... elif message>0: 
+# ...     print("That number is greater than 0!")
+# ... else:
+# ...     print("You picked 0 !")
+# ... message=input("Please choose a number: ")
 
-16.test16="apple"
-test16.index(l)
+# 16.test16="apple"
+# test16.index(l)
 
-17.test17="xylophone"
-test17.find("y")
+# 17.test17="xylophone"
+# test17.find("y")
 
-18.my_string.islower()
+# 18.my_string.islower()
 
 
