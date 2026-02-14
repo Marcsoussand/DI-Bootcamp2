@@ -5,29 +5,38 @@ img {
 nav {
     display: flex;
     background-color: #d07540;
+    justify-content: center;
+    position: relative;
 }
 
 #navHeader {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 600;
   color: #333;
-  padding: 20px;
-  text-align: left;
-  align-self: center;
+  text-align: right;
   display: flex;
+  align-items: center;
+  min-height: 80px;
+  order: 1;
+  position: absolute;
+  left: 0;
 }
 
 #navHeader h4 {
   font-size: 18px;
   margin-right: 10px;
+  margin-top: 0;
+  align-self: flex-start;
 }
 
 #navHeader p {
   font-size: 32px;
   font-weight: 400;
+  font-family: 'Parisienne', cursive;
   color: blue;
-  margin-top: 4px;
-  margin-left: 30px;
+  margin: 0 10px 10px 10px;
+  align-self: center;
+
 }
 
 #navSubTitle {
@@ -35,16 +44,17 @@ nav {
   font-size: 18px;
   font-weight: 400;
   color: white;
-  padding: 10px;
-  text-align: left;
-  align-self: flex-start;
+  align-self: flex-end;
+  margin: 0;
 }
 
 #navLinks {
   list-style-type: none;
   display: flex;
-  margin-left: auto;
   padding: 0;
+  align-self: flex-start;
+  margin: 0;
+  order: 2;
 }
 
 #navLinks a {
@@ -59,18 +69,22 @@ nav {
 .submenu {
   display: none;
   position: absolute;
-  background-color: #D37900;
+  background-color: #d07540;
   list-style-type: none;
   padding: 0;
   margin: 0;
+  flex-direction: column;
+  border: 1px solid white;
 }
 
 .submenu li {
   padding: 10px;
+  border: 1px solid white;
 }
 
 #navLinks li:hover .submenu {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 #navLinks li:hover .submenu li a {
@@ -79,8 +93,9 @@ nav {
 
 #logo_bakery {
   width: 300px;
-  display: block;
   margin: 20px auto;
+  grid-column: 2;
+  justify-self: center;
 }
 
 #deal {
@@ -104,20 +119,35 @@ nav {
 }
 
 main{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
 }
 
 main > a {
+  grid-column: 3;
+  justify-self: end;
+}
+
+main p {
+  font-family: 'Parisienne', cursive;
+  font-size: 36px;
+  padding: 20px;
+  text-align: center;
+  justify-content: center;
+}
+#mainImage {
+  display: block;
   margin-left: auto;
+  margin-right: auto;
 }
 
 #deal h1 {
     text-align: center;
     color: blue;
     font-weight: bold;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Parisienne', cursive;
 }
 
 .clignotant {
@@ -131,4 +161,53 @@ main > a {
   51%, 100% {
     opacity: 0;
   }
+}
+/* Language Switcher */
+#languageSwitcher {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.flag {
+  width: 32px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  opacity: 0.6;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.flag:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.flag.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* RTL Support for Hebrew */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] #navHeader {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] #languageSwitcher {
+  right: auto;
+  left: 20px;
+}
+
+[dir="rtl"] #navLinks a {
+  margin-left: 0;
+  margin-right: 20px;
 }

@@ -8,7 +8,7 @@
     <title>Tech Challenge || Materialize CSS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Parisienne&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
@@ -19,34 +19,56 @@
 <body>
   
   <nav>
-    <div id="navHeader"><h4>Boulangerie Pâtisserie</h4> <p>DI Challenge</p></div>
-    <div id="navSubTitle">Bakery as an art</div>
-    
     <ul id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">Menu</a>
+      <li><a href="index.html" data-en="Home" data-fr="Accueil" data-he="בית">Home</a></li>
+      <li><a href="#" data-en="Menu" data-fr="Menu" data-he="תפריט">Menu</a>
         <ul class="submenu">
-            <li><a href="pain.html">Pain</a></li>
-            <li><a href="patisserie.html">Pâtisserie</a></li>
-            <li><a href="viennoiserie.html">Viennoiserie</a></li>
+            <li><a href="pain.html" data-en="Bread" data-fr="Pain" data-he="לחם">Pain</a></li>
+            <li><a href="patisserie.html" data-en="Pastry" data-fr="Pâtisserie" data-he="מאפה">Pâtisserie</a></li>
+            <li><a href="viennoiserie.html" data-en="Viennoiserie" data-fr="Viennoiserie" data-he="ויינואזרי">Viennoiserie</a></li>
         </ul>
       </li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#" data-en="Contact" data-fr="Contact" data-he="צור קשר">Contact</a></li>
     </ul>
+
+    <div id="navHeader">
+      <h4 data-en="Bakery Pastry" data-fr="Boulangerie Pâtisserie" data-he="מאפייה עוגות">Boulangerie Pâtisserie</h4> 
+      <p data-en="DI Challenge" data-fr="DI Challenge" data-he="DI Challenge">DI Challenge</p>
+      <div id="navSubTitle" data-en="Bakery as an art" data-fr="Bakery as an art" data-he="מאפייה כאמנות">Bakery as an art</div>
+    </div>
+    
+    <div id="languageSwitcher">
+      <img class="flag" src="https://flagcdn.com/32x24/gb.png" data-lang="en" title="English" alt="English">
+      <img class="flag" src="https://flagcdn.com/32x24/fr.png" data-lang="fr" title="Français" alt="Français">
+      <img class="flag" src="https://flagcdn.com/32x24/il.png" data-lang="he" title="עברית" alt="עברית">
+    </div>
+    
+    
+    
   </nav>
     
   <main>
-    <img id="logo_bakery" src="logo_bakery.jpeg" alt="logo">
+    <div id="mainleft">
+      
+    <p data-en="The scent of warm bread is everywhere, mingling with croissants and brioche, with hints of chocolate and perhaps even strawberry." 
+       data-fr="Le parfum du pain chaud est partout, mélangé à celui des croissants, de la brioche, avec des effluves de chocolat et peut-être même de fraise."
+       data-he="ריח הלחם החם בכל מקום, מעורבב עם זה של קרואסונים, בריוש, עם רמזים של שוקולד ואולי אפילו תות."> 
+       « Le parfum du pain chaud est partout, mélangé à celui des croissants, de la brioche, avec des effluves de chocolat et peut-être même de fraise. »
+    </p>
+    <img id="mainImage" src='https://images.pexels.com/photos/5945565/pexels-photo-5945565.jpeg?auto=compress&cs=tinysrgb&w=1600'>
+    </div>
+    <img id="logo_bakery" src="logo_bakery_name.png" alt="logo">
     <a href="deal.html">
       <div id="deal"> 
             <span class="material-symbols-outlined clignotant">delivery_truck_speed</span>
-          <h1 class="clignotant">Special Delivery Deals</h1>
+          <h1 class="clignotant" data-en="Special Delivery Deals" data-fr="Offres de livraison spéciales" data-he="מבצעי משלוח מיוחדים">Special Delivery Deals</h1>
       </div>
     </a>
   </main>
 
  
- <img src='https://images.pexels.com/photos/5945565/pexels-photo-5945565.jpeg?auto=compress&cs=tinysrgb&w=1600'>
+ 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="language-switcher.js"></script>
 </body>
