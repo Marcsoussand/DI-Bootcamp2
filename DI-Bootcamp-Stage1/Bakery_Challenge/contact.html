@@ -3,17 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&family=Parisienne&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Contact</title>
 </head>
 <body>
+
+    <nav>
+    <ul id="navLinks">
+      <li><a href="index.html" data-en="Home" data-fr="Accueil" data-he="בית">Home</a></li>
+      <li><a href="#" data-en="Menu" data-fr="Menu" data-he="תפריט">Menu</a>
+        <ul class="submenu">
+            <li><a href="pain.html" data-en="Bread" data-fr="Pain" data-he="לחם">Pain</a></li>
+            <li><a href="patisserie.html" data-en="Pastry" data-fr="Pâtisserie" data-he="מאפה">Pâtisserie</a></li>
+            <li><a href="viennoiserie.html" data-en="Viennoiserie" data-fr="Viennoiserie" data-he="ויינואזרי">Viennoiserie</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html" data-en="Contact" data-fr="Contact" data-he="צור קשר">Contact</a></li>
+    </ul>
+
+    <div id="navHeader">
+      <h4 data-en="Bakery Pastry" data-fr="Boulangerie Pâtisserie" data-he="מאפייה עוגות">Boulangerie Pâtisserie</h4> 
+      <p data-en="DI Challenge" data-fr="DI Challenge" data-he="DI Challenge">DI Challenge</p>
+      <div id="navSubTitle" data-en="Bakery as an art" data-fr="Bakery as an art" data-he="מאפייה כאמנות">Bakery as an art</div>
+    </div>
+    
+    <div id="languageSwitcher">
+      <img class="flag" src="https://flagcdn.com/32x24/gb.png" data-lang="en" title="English" alt="English">
+      <img class="flag" src="https://flagcdn.com/32x24/fr.png" data-lang="fr" title="Français" alt="Français">
+      <img class="flag" src="https://flagcdn.com/32x24/il.png" data-lang="he" title="עברית" alt="עברית">
+    </div>
+    
+    
+    
+  </nav>
+    
+  <main>
+    <div class="contact-container">
+      <h2 data-en="Contact Us" data-fr="Contactez-nous" data-he="צור קשר">Contactez-nous</h2>
+      
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="nom" data-en="Last Name" data-fr="Nom" data-he="שם משפחה">Nom</label>
+          <input type="text" id="nom" name="nom" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="prenom" data-en="First Name" data-fr="Prénom" data-he="שם פרטי">Prénom</label>
+          <input type="text" id="prenom" name="prenom" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email" data-en="Email Address" data-fr="Adresse e-mail" data-he="כתובת דוא״ל">Adresse e-mail</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="telephone" data-en="Phone Number" data-fr="Numéro de téléphone" data-he="מספר טלפון">Numéro de téléphone</label>
+          <input type="tel" id="telephone" name="telephone">
+        </div>
+        
+        <div class="form-group">
+          <label for="motif" data-en="Reason for your request" data-fr="Motif de votre demande" data-he="סיבת הפנייה">Motif de votre demande</label>
+          <textarea id="motif" name="motif" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn" data-en="Send" data-fr="Envoyer" data-he="שלח">Envoyer</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="language-switcher.js"></script>
     
 </body>
 </html>
-
-EBADC
-EDBAC
-
-
-CBADE
-
-BADCE

@@ -211,3 +211,91 @@ main p {
   margin-left: 0;
   margin-right: 20px;
 }
+
+/* Contact Form */
+.contact-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h2 {
+  text-align: center;
+  font-family: 'Parisienne', cursive;
+  color: #d07540;
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #d07540;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #d07540;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #b86230;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* RTL Support for Contact Form */
+[dir="rtl"] .form-group label {
+  text-align: right;
+}
+
+[dir="rtl"] .form-group input,
+[dir="rtl"] .form-group textarea {
+  direction: rtl;
+  text-align: right;
+}
