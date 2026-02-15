@@ -1,4 +1,8 @@
-user_input = input(" Enter a 10 characters string: ")
+import random
+user_input_init = input(" Enter a 10 characters string: ")
+user_input_list = list(user_input_init)
+random.shuffle(user_input_list)
+user_input = "".join(user_input_list)
 if len(user_input) < 10:
     print("String not long enough")
 elif len(user_input) > 10:
