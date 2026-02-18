@@ -8,7 +8,7 @@ today = {
 
 def get_age(year, month, day):
     age = today['year'] - year  -1
-    if month < today['month'] and day < today['day']:
+    if month < today['month'] or (month == today['month'] and day < today['day']):
         age +=1
     print(age)
     return age
