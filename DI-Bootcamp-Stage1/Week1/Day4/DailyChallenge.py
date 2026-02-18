@@ -24,7 +24,7 @@ def show_menu():
 def update_price():
     item = input("Which item do you want to update? ")
     if item in menu:
-        price = input("What should be the new price? ")
+        price = float(input("What should be the new price? "))
         menu[item] = price
         print("Price updated!")
     else:
@@ -47,7 +47,7 @@ def show_options():
           4. Delete item
           5. Exit""")
     
-def run_coffee_shop():
+def run_coffee_shop(menu):
     while True:
         show_options()
         choice = int(input("Please choose (1-5)"))
@@ -63,6 +63,6 @@ def run_coffee_shop():
             print("Goodbye!")
             break
         else:
-            "Invalid choice, try again."
+            print("Invalid choice, try again.")
 
-run_coffee_shop()
+run_coffee_shop(menu)
