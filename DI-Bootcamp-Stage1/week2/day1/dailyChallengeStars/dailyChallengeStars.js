@@ -1,0 +1,16 @@
+// Option 1: Using one loop
+
+let stars = "*"
+for (let i = 1; i<=6 ; i++ ){
+    console.log(stars);
+    stars += " *";
+}
+// Option 2: Using a nested loop
+
+for (let i = 1; i <= 6; i++) {
+    let line = "";
+    for (let j = 1; j <= i; j++) {
+        line += (j === 1) ? "*" : " *";
+    }
+    console.log(line);
+}
