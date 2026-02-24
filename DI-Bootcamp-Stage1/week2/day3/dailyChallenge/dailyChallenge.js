@@ -13,6 +13,6 @@ function getInputs(e) {
         let story = document.getElementById("story");
         story.innerHTML = `${person.value} the ${adjective.value} often called ${noun.value} used to ${verb.value} in ${place.value}`
     }
-    console.log(noun.value, adjective.value, person.value, verb.value, place.value);
+    // console.log(noun.value, adjective.value, person.value, verb.value, place.value);
 }
 
