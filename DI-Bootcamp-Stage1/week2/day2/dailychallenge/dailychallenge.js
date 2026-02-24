@@ -17,3 +17,7 @@ for (let i in planets) {
 console.log(divArray);
 
 
+// divMercury = document.createElement("div");
+// divMercury.classList.add('planet');
+// divMercury.classList.add('mercury');
+// style.textContent += "\n .mercury {background: green}"
