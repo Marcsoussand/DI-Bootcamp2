@@ -1,0 +1,41 @@
+body {
+    background-image: url('concert.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxes {
+    display:block;
+    width: 100px;
+    height: 100px;
+    border: 2px solid gold;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+span {
+    display: block;
+    color: yellow;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    margin-bottom: 10px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
