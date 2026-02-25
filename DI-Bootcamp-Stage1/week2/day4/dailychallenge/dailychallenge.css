@@ -1,0 +1,43 @@
+.tasksButton {
+    background-color: red;
+    color: white;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+body {
+    background: radial-gradient(circle, red, orangered, lightcoral);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.newTasks {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    justify-content: center;
+    text-align: center;
+}
+
+.listTasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto 0 auto;
+    background-color: white;
+    width: 30%;
+}
