@@ -53,3 +53,45 @@ let navBar = document.getElementById("navBar");
     div.appendChild(nameText);
     navBar.appendChild(div);
 })();
+
+//Exercise 8 
+//Part I
+
+function makeJuice(size) {
+    function addIngredients(firstIng, secondIng, thirdIng) {
+        let div = document.createElement("div");
+        let divText = document.createTextNode(
+            `The client wants a ${size} juice, containing ${firstIng}, ${secondIng}, ${thirdIng}`
+        );
+        div.appendChild(divText);
+        document.body.appendChild(div);
+    }
+    addIngredients("Apple", "Mango", "Banana");
+}
+
+makeJuice("small");
+
+//Part II
+
+function makeJuice2(size) {
+    let ingredients = [];
+
+    function addIngredients(firstIng, secondIng, thirdIng) {
+        ingredients.push(firstIng, secondIng, thirdIng);
+    }
+
+    function displayJuice() {
+        let div = document.createElement("div");
+        let divText = document.createTextNode(
+            `The client wants a ${size} juice, containing ${ingredients.join(", ")}`
+        );
+        div.appendChild(divText);
+        document.body.appendChild(div);
+    }
+
+    addIngredients("Apple", "Mango", "Banana");
+    addIngredients("Strawberry", "Kiwi", "Pineapple");
+    displayJuice();
+}
+
+makeJuice2("large");
