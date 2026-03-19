@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Tic Tac Toe</h1>
+
+        <div id="setup-panel">
+            <div id="symbol-selection">
+                <p>Choose your symbol:</p>
+                <div class="btn-group">
+                    <button id="btn-x" class="symbol-btn active" onclick="chooseSymbol('X')">X</button>
+                    <button id="btn-o" class="symbol-btn" onclick="chooseSymbol('O')">O</button>
+                </div>
+            </div>
+
+            <div id="difficulty-selection">
+                <p>Choose difficulty:</p>
+                <div class="btn-group">
+                    <button id="btn-easy" class="difficulty-btn active" onclick="chooseDifficulty('easy')">Easy</button>
+                    <button id="btn-hard" class="difficulty-btn" onclick="chooseDifficulty('hard')">Hard</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="status-message">Choose your symbol to start!</div>
+
+        <div id="board">
+            <div class="cell" id="cell-0" onclick="handleCellClick(0)"></div>
+            <div class="cell" id="cell-1" onclick="handleCellClick(1)"></div>
+            <div class="cell" id="cell-2" onclick="handleCellClick(2)"></div>
+            <div class="cell" id="cell-3" onclick="handleCellClick(3)"></div>
+            <div class="cell" id="cell-4" onclick="handleCellClick(4)"></div>
+            <div class="cell" id="cell-5" onclick="handleCellClick(5)"></div>
+            <div class="cell" id="cell-6" onclick="handleCellClick(6)"></div>
+            <div class="cell" id="cell-7" onclick="handleCellClick(7)"></div>
+            <div class="cell" id="cell-8" onclick="handleCellClick(8)"></div>
+        </div>
+
+        <button id="restart-btn" onclick="restartGame()">Play Again</button>
+    </div>
+
+    <script src="tictactoe.js"></script>
+</body>
+</html>
