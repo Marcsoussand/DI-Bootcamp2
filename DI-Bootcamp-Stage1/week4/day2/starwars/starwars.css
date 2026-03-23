@@ -1,0 +1,65 @@
+body {
+    background-image: url('star.jpg');
+}
+
+@font-face {
+    font-family: 'StarJedi';
+    src: url('Starjedi.ttf') format('truetype');
+}
+
+h1 {
+    text-align: center;
+    font-family: 'StarJedi', sans-serif;
+    font-size: 90px;
+    color: transparent; 
+    -webkit-text-stroke: 2px #b8860b;
+}
+
+#center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; 
+    width: 500px;
+    border: 2px solid #FFE81F;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+/* .fa-spinner {
+    color: #FFE81F;
+    display: none;
+} */
+
+button {
+    background-color: white;
+    color: black;
+    border: 2px solid #FFE81F;
+    border-radius: 20px;
+    margin: 20px auto;
+    display: block;
+    width: 250px;
+    font-size: 30px;
+    cursor: pointer;
+}
+ 
+
+.people {
+    color: white;
+    font-family: 'StarJedi', sans-serif;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nameTitle {
+    font-size: 30px;
+}
+
+.basic {
+    font-size: 20px;
+}
+
+.fa-3x {
+    display: none;
+    color: #FFE81F;
+}
