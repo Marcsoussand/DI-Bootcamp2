@@ -1,0 +1,11 @@
+# TypeScript compilation output (only in TS folders)
+week4/day3/*.js
+week4/day3/**/*.js
+week4/day4/*.js
+week4/day4/**/*.js
+
+# Node modules
+node_modules/
+
+# Package lock
+package-lock.json
