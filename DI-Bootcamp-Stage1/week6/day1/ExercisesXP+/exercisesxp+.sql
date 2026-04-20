@@ -29,3 +29,9 @@
 -- SELECT first_name, last_name from students where id in (1,3);
 
 -- SELECT first_name, last_name from students where birth_date >= '2000-01-01';
+
+-- SELECT first_name, last_name from students  order by last_name ASC limit 4;
+
+-- SELECT * from students where birth_date = (SELECT MAX(birth_date) from students);
+
+SELECT * from students limit 3 offset 2;
