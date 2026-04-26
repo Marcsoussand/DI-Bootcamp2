@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e2e;
+      color: #cdd6f4;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #2a2a3e;
+      padding: 2.5rem;
+      border-radius: 16px;
+      width: 400px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    h1 { font-size: 1.8rem; color: #89b4fa; margin-bottom: 0.3rem; }
+    p.subtitle { color: #a6adc8; font-size: 0.88rem; margin-bottom: 1.8rem; }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    label { font-size: 0.88rem; font-weight: 600; color: #a6adc8; }
+
+    input {
+      padding: 0.65rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid #45475a;
+      background: #1e1e2e;
+      color: #cdd6f4;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus { border-color: #89b4fa; }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      background: #89b4fa;
+      color: #1e1e2e;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button[type="submit"]:hover:not(:disabled) { background: #6a9de0; }
+    button[type="submit"]:disabled {
+      background: #45475a;
+      color: #6c7086;
+      cursor: not-allowed;
+    }
+
+    #message {
+      margin-top: 1rem;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      text-align: center;
+      display: none;
+    }
+    #message.success { background: rgba(166,227,161,0.15); color: #a6e3a1; }
+    #message.error   { background: rgba(243,139,168,0.15); color: #f38ba8; }
+
+    .register-link {
+      text-align: center;
+      margin-top: 1.2rem;
+      font-size: 0.85rem;
+      color: #a6adc8;
+    }
+    .register-link a { color: #89b4fa; text-decoration: none; }
+    .register-link a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Welcome back</h1>
+    <p class="subtitle">Enter your credentials to log in.</p>
+
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="johndoe" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required />
+      </div>
+
+      <button type="submit" id="submit-btn" disabled>Log In</button>
+    </form>
+
+    <div id="message"></div>
+
+    <p class="register-link">Don't have an account? <a href="/register.html">Register</a></p>
+  </div>
+
+  <script>
+    const form      = document.getElementById('login-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const msgBox    = document.getElementById('message');
+    const inputs    = form.querySelectorAll('input');
+
+    // Disable submit button while any input is empty
+    const checkInputs = () => {
+      const allFilled = [...inputs].every((input) => input.value.trim() !== '');
+      submitBtn.disabled = !allFilled;
+    };
+
+    inputs.forEach((input) => input.addEventListener('input', checkInputs));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const body = {
+        username: document.getElementById('username').value.trim(),
+        password: document.getElementById('password').value,
+      };
+
+      try {
+        const res  = await fetch('/login', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(body),
+        });
+        const data = await res.json();
+
+        msgBox.style.display = 'block';
+        if (res.ok) {
+          msgBox.className = 'success';
+          msgBox.textContent = data.message;
+          form.reset();
+          submitBtn.disabled = true;
+        } else {
+          msgBox.className = 'error';
+          msgBox.textContent = data.message;
+        }
+      } catch (err) {
+        msgBox.style.display = 'block';
+        msgBox.className = 'error';
+        msgBox.textContent = 'Server error. Please try again.';
+      }
+    });
+  </script>
+</body>
+</html>
