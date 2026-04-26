@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Join Screen -->
+  <div id="join-screen">
+    <div class="join-box">
+      <h1>💬 Chat App</h1>
+      <input id="username-input" type="text" placeholder="Your username" maxlength="20" />
+      <input id="room-input" type="text" placeholder="Room name" maxlength="20" />
+      <button id="join-btn">Join Room</button>
+    </div>
+  </div>
+
+  <!-- Chat Screen -->
+  <div id="chat-screen">
+    <aside id="sidebar">
+      <h2>💬 Chat App</h2>
+      <div id="room-name"></div>
+      <h3>Active Users</h3>
+      <ul id="users-list"></ul>
+    </aside>
+    <main id="chat-main">
+      <div id="messages"></div>
+      <form id="message-form">
+        <input id="message-input" type="text" placeholder="Type a message..." autocomplete="off" />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    const joinScreen  = document.getElementById('join-screen');
+    const chatScreen  = document.getElementById('chat-screen');
+    const joinBtn     = document.getElementById('join-btn');
+    const messageForm = document.getElementById('message-form');
+    const messageInput= document.getElementById('message-input');
+    const messagesDiv = document.getElementById('messages');
+    const usersList   = document.getElementById('users-list');
+    const roomNameDiv = document.getElementById('room-name');
+
+    let myUsername = '';
+
+    // ── Join ────────────────────────────────────────────────────────────────
+    joinBtn.addEventListener('click', () => {
+      const username = document.getElementById('username-input').value.trim();
+      const room     = document.getElementById('room-input').value.trim();
+      if (!username || !room) return;
+
+      myUsername = username;
+      socket.emit('join', username, room);
+
+      roomNameDiv.textContent = '# ' + room;
+      joinScreen.style.display = 'none';
+      chatScreen.style.display = 'flex';
+      messageInput.focus();
+    });
+
+    // Allow pressing Enter to join
+    document.getElementById('room-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') joinBtn.click();
+    });
+
+    // ── Send message ────────────────────────────────────────────────────────
+    messageForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = messageInput.value.trim();
+      if (!text) return;
+      socket.emit('message', text);
+      messageInput.value = '';
+    });
+
+    // ── Receive message ─────────────────────────────────────────────────────
+    socket.on('message', ({ username, text, time }) => {
+      const isMine = username === myUsername;
+      const div = document.createElement('div');
+      div.classList.add('message', isMine ? 'mine' : 'other');
+      div.innerHTML = `
+        <span class="msg-user">${username}</span>
+        <span class="msg-text">${text}</span>
+        <span class="msg-time">${time}</span>
+      `;
+      messagesDiv.appendChild(div);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+      // Browser notification if tab not focused
+      if (!isMine && document.hidden) {
+        document.title = '🔔 New message!';
+      }
+    });
+
+    // Restore title when tab refocused
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) document.title = 'Chat App';
+    });
+
+    // ── Notification (join / leave) ──────────────────────────────────────────
+    socket.on('notification', (text) => {
+      const div = document.createElement('div');
+      div.classList.add('notification');
+      div.textContent = text;
+      messagesDiv.appendChild(div);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    });
+
+    // ── Users list ───────────────────────────────────────────────────────────
+    socket.on('users', (users) => {
+      usersList.innerHTML = '';
+      users.forEach((u) => {
+        const li = document.createElement('li');
+        li.textContent = u;
+        if (u === myUsername) li.classList.add('me');
+        usersList.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
+</html>
