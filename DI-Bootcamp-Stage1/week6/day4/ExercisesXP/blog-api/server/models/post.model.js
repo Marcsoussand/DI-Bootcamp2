@@ -1,32 +1,44 @@
-let posts = [
-  { id: 1, title: 'First Post', content: 'This is the first blog post.' },
-  { id: 2, title: 'Second Post', content: 'This is the second blog post.' },
-];
+const { db } = require('../config/config');
 
-let nextId = 3;
+// SQL schema (run once in your DB):
+// CREATE TABLE posts (
+//   id      SERIAL PRIMARY KEY,
+//   title   VARCHAR(255) NOT NULL,
+//   content TEXT         NOT NULL
+// );
 
-const getAll = () => posts;
-
-const getById = (id) => posts.find((p) => p.id === id);
-
-const create = ({ title, content }) => {
-  const post = { id: nextId++, title, content };
-  posts.push(post);
-  return post;
+const getAll = async () => {
+  const { rows } = await db.query('SELECT * FROM posts ORDER BY id ASC');
+  return rows;
 };
 
-const update = (id, { title, content }) => {
-  const index = posts.findIndex((p) => p.id === id);
-  if (index === -1) return null;
-  posts[index] = { ...posts[index], title, content };
-  return posts[index];
+const getById = async (id) => {
+  const { rows } = await db.query('SELECT * FROM posts WHERE id = $1', [id]);
+  return rows[0] || null;
 };
 
-const remove = (id) => {
-  const index = posts.findIndex((p) => p.id === id);
-  if (index === -1) return null;
-  const [deleted] = posts.splice(index, 1);
-  return deleted;
+const create = async ({ title, content }) => {
+  const { rows } = await db.query(
+    'INSERT INTO posts (title, content) VALUES ($1, $2) RETURNING *',
+    [title, content]
+  );
+  return rows[0];
+};
+
+const update = async (id, { title, content }) => {
+  const { rows } = await db.query(
+    'UPDATE posts SET title = $1, content = $2 WHERE id = $3 RETURNING *',
+    [title, content, id]
+  );
+  return rows[0] || null;
+};
+
+const remove = async (id) => {
+  const { rows } = await db.query(
+    'DELETE FROM posts WHERE id = $1 RETURNING *',
+    [id]
+  );
+  return rows[0] || null;
 };
 
 module.exports = { getAll, getById, create, update, remove };
